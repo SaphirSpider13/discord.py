@@ -307,7 +307,7 @@ class HelpCommand:
         self.verify_checks = options.pop('verify_checks', True)
         self.command_attrs = attrs = options.pop('command_attrs', {})
         attrs.setdefault('name', 'help')
-        attrs.setdefault('help', 'Shows this message')
+        attrs.setdefault('help', 'Zeigt diese Nachricht an.')
         self.context = None
         self._command_impl = None
 
@@ -858,8 +858,8 @@ class DefaultHelpCommand(HelpCommand):
         self.sort_commands = options.pop('sort_commands', True)
         self.dm_help = options.pop('dm_help', False)
         self.dm_help_threshold = options.pop('dm_help_threshold', 1000)
-        self.commands_heading = options.pop('commands_heading', "Commands:")
-        self.no_category = options.pop('no_category', 'No Category')
+        self.commands_heading = options.pop('commands_heading', "Befehle:")
+        self.no_category = options.pop('no_category', 'Keine Kategorie')
         self.paginator = options.pop('paginator', None)
 
         if self.paginator is None:
@@ -876,8 +876,8 @@ class DefaultHelpCommand(HelpCommand):
     def get_ending_note(self):
         """Returns help command's ending note. This is mainly useful to override for i18n purposes."""
         command_name = self.invoked_with
-        return "Type {0}{1} command for more info on a command.\n" \
-               "You can also type {0}{1} category for more info on a category.".format(self.clean_prefix, command_name)
+        return "Gebe {0}{1} <Befehl> für mehr Informationen zu einem speziellen Befehl ein.\n" \
+               "Du kannst auch {0}{1} <Kategorie> für mehr Informationen zu einer Kategorie eingeben.".format(self.clean_prefix, command_name)
 
     def add_indented_commands(self, commands, *, heading, max_size=None):
         """Indents a list of commands after the specified heading.
